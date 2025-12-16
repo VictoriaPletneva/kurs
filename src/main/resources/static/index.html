@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Художественная школа - Система управления</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Навигация -->
+        <nav class="navbar" id="navbar" style="display: none;">
+            <div class="nav-container">
+                <h1 class="nav-logo">🎨 Художественная школа</h1>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#" onclick="showPage('dashboard')">Главная</a></li>
+                    <li id="studentMenu" style="display: none;"><a href="#" onclick="showPage('profile')">Мой профиль</a></li>
+                    <li id="studentMenu2" style="display: none;"><a href="#" onclick="showPage('courses')">Курсы</a></li>
+                    <li id="studentMenu3" style="display: none;"><a href="#" onclick="showPage('studentGradebook')">Журнал оценок и посещаемости</a></li>
+                    <li id="studentMenu4" style="display: none;"><a href="#" onclick="showPage('schedule')">Расписание</a></li>
+                    <li id="teacherMenu" style="display: none;"><a href="#" onclick="showPage('students')">Ученики</a></li>
+                    <li id="teacherMenu2" style="display: none;"><a href="#" onclick="showPage('schedule')">Расписание</a></li>
+                    <li id="teacherMenu3" style="display: none;"><a href="#" onclick="showPage('gradebook')">Журнал оценок</a></li>
+                    <li id="registrarMenu" style="display: none;"><a href="#" onclick="showPage('students')">Регистратура</a></li>
+                    <li id="registrarMenu2" style="display: none;"><a href="#" onclick="showPage('schedule')">Расписание</a></li>
+                    <li id="adminCoursesMenu" style="display: none;"><a href="#" onclick="showPage('courses')">Курсы</a></li>
+                    <li id="adminTeachersMenu" style="display: none;"><a href="#" onclick="showPage('teachers')">Преподаватели</a></li>
+                    <li id="adminMenu" style="display: none;"><a href="#" onclick="showPage('users')">Пользователи</a></li>
+                    <li id="adminMenu2" style="display: none;"><a href="#" onclick="showPage('statistics')">Статистика</a></li>
+                    <li><a href="#" onclick="showPage('about')">Об авторе</a></li>
+                    <li><a href="#" onclick="logout()">Выход</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Страница авторизации -->
+        <div id="loginPage" class="page">
+            <div class="login-container">
+                <h2>🔐 Вход в систему</h2>
+                <form id="loginForm" onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label for="username">Логин:</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Пароль:</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Войти</button>
+                </form>
+                <p class="register-link" style="color: #666; font-size: 0.9rem; margin-top: 1rem;">
+                    Для получения доступа обратитесь к администратору системы
+                </p>
+                <div id="loginError" class="error-message" style="display: none;"></div>
+            </div>
+        </div>
+
+
+        <!-- Главная страница -->
+        <div id="dashboardPage" class="page" style="display: none;">
+            <div class="container">
+                <h2>✨ Добро пожаловать в систему управления художественной школой</h2>
+                <div class="dashboard-cards">
+                    <div class="card">
+                        <h3>👤 Мой профиль</h3>
+                        <p>Просмотр и редактирование личной информации</p>
+                        <button class="btn btn-secondary" onclick="showPage('profile')">Открыть</button>
+                    </div>
+                    <div class="card">
+                        <h3>📚 Курсы</h3>
+                        <p>Просмотр доступных курсов и запись на занятия</p>
+                        <button class="btn btn-secondary" onclick="showPage('courses')">Открыть</button>
+                    </div>
+                    <div class="card">
+                        <h3>📅 Расписание</h3>
+                        <p>Просмотр расписания занятий</p>
+                        <button class="btn btn-secondary" onclick="showPage('schedule')">Открыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Страница профиля -->
+        <div id="profilePage" class="page" style="display: none;">
+            <div class="container">
+                <h2>Мой профиль</h2>
+                <div id="profileContent"></div>
+            </div>
+        </div>
+
+        <!-- Страница курсов -->
+        <div id="coursesPage" class="page" style="display: none;">
+            <div class="container">
+                <h2>Курсы</h2>
+                <div id="coursesContent"></div>
+            </div>
+        </div>
+
+        <!-- Страница учеников -->
+        <div id="studentsPage" class="page" style="display: none;">
+            <div class="container">
+                <h2>Ученики</h2>
+                <div class="toolbar">
+                    <input type="text" id="searchStudents" placeholder="Поиск по имени..." onkeyup="searchStudents()">
+                    <select id="sortStudents" onchange="sortStudents()">
+                        <option value="fullName">Сортировка по имени</option>
+                        <option value="registrationDate">Сортировка по дате регистрации</option>
+                        <option value="age">Сортировка по возрасту</option>
+                    </select>
+                </div>
+                <div id="studentsContent"></div>
+            </div>
+        </div>
+
+        <!-- Страница преподавателей -->
+        <div id="teachersPage" class="page" style="display: none;">
+            <div class="container">
+                <h2>Преподаватели</h2>
+                <div id="teachersContent"></div>
+            </div>
+        </div>
+
+        <!-- Страница расписания -->
+        <div id="schedulePage" class="page" style="display: none;">
+            <div class="container">
+                <h2>Расписание</h2>
+                <div id="scheduleContent"></div>
+            </div>
+        </div>
+
+        <!-- Страница журнала оценок и посещаемости (для студента) -->
+        <div id="studentGradebookPage" class="page" style="display: none;">
+            <div class="container">
+                <h2>📊 Журнал оценок и посещаемости</h2>
+                <div id="studentGradebookContent"></div>
+            </div>
+        </div>
+
+        <!-- Страница журнала оценок (для учителя) -->
+        <div id="gradebookPage" class="page" style="display: none;">
+            <div class="container">
+                <h2>📊 Журнал оценок и посещаемости</h2>
+                <div id="gradebookContent"></div>
+            </div>
+        </div>
+
+        <!-- Страница пользователей (для админа) -->
+        <div id="usersPage" class="page" style="display: none;">
+            <div class="container">
+                <h2>Управление пользователями</h2>
+                <div id="usersContent"></div>
+            </div>
+        </div>
+
+        <!-- Страница статистики -->
+        <div id="statisticsPage" class="page" style="display: none;">
+            <div class="container">
+                <h2>Статистика</h2>
+                <div id="statisticsContent"></div>
+            </div>
+        </div>
+
+        <!-- Страница "Об авторе" -->
+        <div id="aboutPage" class="page" style="display: none;">
+            <div class="container">
+                <h2>👨‍💻 Об авторе</h2>
+                <div class="about-content">
+                    <h3>📋 Информация о разработчике</h3>
+                    <p><strong>ФИО:</strong> Плетнева Виктория Александровна</p>
+                    <p><strong>Группа:</strong> ИД23-2</p>
+                    <p><strong>Учебное заведение:</strong> Финансовый университет при Правительстве Российской Федерации</p>
+                    <p><strong>Контактные данные:</strong> 233468@edu.fa.ru</p>
+                    <h3>🛠️ Опыт работы с технологиями</h3>
+                    <p>В данном проекте использованы следующие технологии:</p>
+                    <ul>
+                        <li>Java 21 - язык программирования</li>
+                        <li>Spring Boot - фреймворк для создания веб-приложений</li>
+                        <li>PostgreSQL - система управления базами данных</li>
+                        <li>JPA/Hibernate - ORM для работы с БД</li>
+                        <li>Spring Security - безопасность приложения</li>
+                        <li>JWT - токены для аутентификации</li>
+                        <li>HTML/CSS/JavaScript - клиентская часть</li>
+                        <li>Maven - система сборки проекта</li>
+                        <li>Swagger - документация API</li>
+                    </ul>
+                    <h3>📅 Сроки работы над проектом</h3>
+                    <p><strong>Дата начала:</strong> 17 октября 2025</p>
+                    <p><strong>Дата завершения:</strong> 14 декабря 2025</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/auth.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/students.js"></script>
+    <script src="/js/courses.js"></script>
+    <script src="/js/schedule.js"></script>
+    <script src="/js/admin.js"></script>
+    <script src="/js/statistics.js"></script>
+    <script src="/js/profile.js"></script>
+    <script src="/js/teachers.js"></script>
+    <script src="/js/grades.js"></script>
+    <script src="/js/attendance.js"></script>
+    <script src="/js/gradebook.js"></script>
+    <script src="/js/studentGradebook.js"></script>
+    <script src="/js/registrar.js"></script>
+</body>
+</html>
+
