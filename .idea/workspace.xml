@@ -4,15 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b19ddd5c-e882-41e2-854d-d729a3da9c24" name="Changes" comment="a">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="b19ddd5c-e882-41e2-854d-d729a3da9c24" name="Changes" comment="Коммит проекта2">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+      <option value="module" />
+      <option value="repository" />
+    </option>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -53,7 +58,7 @@
     "last_opened_file_path": "C:/Users/Виктория/Downloads/kurs/pom.xml",
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "C:/Users/Виктория/Downloads/kurs/src/main/java/ru/artschool/Main.java",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Global Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default",
@@ -117,7 +122,23 @@
       <option name="project" value="LOCAL" />
       <updated>1765269584080</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Коммит проекта">
+      <option name="closed" value="true" />
+      <created>1765929247428</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1765929247428</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Коммит проекта2">
+      <option name="closed" value="true" />
+      <created>1765929259278</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1765929259278</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,6 +168,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="a" />
     <MESSAGE value="Предварительная версия" />
-    <option name="LAST_COMMIT_MESSAGE" value="Предварительная версия" />
+    <MESSAGE value="Коммит проекта" />
+    <MESSAGE value="Коммит проекта2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Коммит проекта2" />
   </component>
 </project>
